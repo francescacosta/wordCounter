@@ -26,3 +26,23 @@
 // main(process.argv[2], function(lines, words) {
 //   out('%s is %s lines long, and has %s words.', process.argv[2], lines, words);
 // });
+
+$(document).ready(function() {
+  $(function() {
+    $('#upload').change(function(event) {
+      var f = event.target.files[0];
+      if (f) {
+        var r = new FileReader();
+
+        r.onload = function(e) {
+          var contents = e.target.result;
+          var res = contents.split(' ');
+          $('.screen1').fadeOut(1000);
+          $('.screen2').fadeIn(1000);
+          $('#display_File_count').text(res.length);
+        };
+        r.readAsText(f);
+      }
+    });
+  });
+});

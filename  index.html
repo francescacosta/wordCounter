@@ -4,31 +4,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script type="text/javascript" src="main.js" ></script>
   <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400|Roboto:300,400" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script>
-  $(document).ready(function() {
-  $(function() {
-    $('#upload').change(function(event) {
-      var f = event.target.files[0];
-      if (f) {
-        var r = new FileReader();
-
-        r.onload = function(e) {
-          var contents = e.target.result;
-          var res = contents.split(' ');
-          $('.screen1').fadeOut(1000);
-          $('.screen2').fadeIn(1000);
-          $('#display_File_count').text(res.length);
-        };
-        r.readAsText(f);
-      }
-    });
-  });
-});
-</script>
-
   <title>Word & Line Counter</title>
 </head>
 
