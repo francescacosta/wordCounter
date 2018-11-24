@@ -1,0 +1,51 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="main.js" ></script>
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400|Roboto:300,400" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script>
+  $(document).ready(function() {
+  $(function() {
+    $('#upload').change(function(event) {
+      var f = event.target.files[0];
+      if (f) {
+        var r = new FileReader();
+
+        r.onload = function(e) {
+          var contents = e.target.result;
+          var res = contents.split(' ');
+          $('#display_File_count').text(res.length);
+        };
+        r.readAsText(f);
+      }
+    });
+  });
+});
+</script>
+
+  <title>Word & Line Counter</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>WORD COUNTER</h1>
+    <p>
+      Upload your file below to have the amount of lines and words counted .txt & pdf files accepted
+    </p>
+
+    <div>
+      <form enctype="multipart/form-data" method="post" onsubmit="return upload();">
+        <input name="upload" type="file" id="upload" accept="text/pdf" >
+
+        <div><span id="display_File_count">0</span> <span class="words"> words</span></div>
+        <!-- <input type="button" class="button" value="SUBMIT" onclick="main(); return false;"/> -->
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
